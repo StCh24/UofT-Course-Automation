@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Auto-fill login credentials and redirect to the ACORN course page.
-// @author       You
+// @author       Hegel
 // @match        https://idpz.utorauth.utoronto.ca/idp/profile/SAML2/Redirect/SSO*
 // @match        https://acorn.utoronto.ca/sws/*
 // @grant        none
