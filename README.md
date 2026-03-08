@@ -1,4 +1,4 @@
-# UofT ACORN Tampermonkey Automation Scripts
+# UofT ACORN Tampermonkey Automatic Course Enrollment
 
 This script is designed to help you log in automatically and enroll the courses that are already in your enrollment cart.
 
