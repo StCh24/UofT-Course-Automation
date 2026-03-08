@@ -116,7 +116,7 @@ BASE_URL = "https://acorn.utoronto.ca/sws/#/courses/0";
 - `preferredCourses`: list of target course IDs
 
 Replace these courses IDs
-You must have already added these courses to your enrollment cart
+(You must have already added these courses to your enrollment cart)
 
 
 ---
