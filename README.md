@@ -1,5 +1,7 @@
 # UofT ACORN Tampermonkey Automation Scripts
 
+This script is designed to help you log in automatically and enroll the courses that are already in your enrollment cart.
+
 This repository contains two userscripts:
 
 1. **Login Redirect Script** – auto-fills the UofT SSO login form and redirects to the ACORN course page.
@@ -12,8 +14,6 @@ This repository contains two userscripts:
 
 This is the **entry script**.
 
-It performs two actions:
-
 - Detects the UofT SSO login page.
 - Fills in the username and password fields, then submits the login form.
 - If the browser lands on the ACORN home page (`#/`), it redirects to the course page (`#/courses/0`).
@@ -24,8 +24,6 @@ This script automates the transition from **login** to the **course management p
 ### 2) `scripts/utoronto-auto-enrol.user.js`
 
 This is the **main automation script**.
-
-It performs three actions:
 
 - Injects a fixed `GOGOGO` button into the ACORN course page.
 - Opens one new browser window per course listed in `preferredCourses`.
@@ -64,7 +62,7 @@ In this package, they are effectively empty placeholders and contain no importan
 4. The script clicks the submit button.
 5. After login, if the browser lands on `https://acorn.utoronto.ca/sws/#/`, the script redirects to `https://acorn.utoronto.ca/sws/#/courses/0`.
 
-### B. Auto-enrol flow
+### B. Auto-enrollment flow
 
 1. Open the ACORN course page.
 2. The auto-enrol script injects a `GOGOGO` button.
@@ -73,7 +71,7 @@ In this package, they are effectively empty placeholders and contain no importan
 5. For each course, it opens a new window:
 
 ```text
-https://acorn.utoronto.ca/sws/#/courses/0?_=CSC108H1
+https://acorn.utoronto.ca/sws/#/courses/0?_=CSC148H1
 ```
 
 6. Each worker window:
@@ -91,7 +89,7 @@ https://acorn.utoronto.ca/sws/#/courses/0?_=CSC108H1
 
 ```javascript
 let username = "your UTORid",
-    password = "the corresponding password";
+    password = "password";
 ```
 
 Replace these placeholders
@@ -115,7 +113,7 @@ BASE_URL = "https://acorn.utoronto.ca/sws/#/courses/0";
 
 - `preferredCourses`: list of target course IDs
 
-Replace these courses IDs
+Replace these course IDs
 (You must have already added these courses to your enrollment cart)
 
 
@@ -130,21 +128,20 @@ Replace these courses IDs
 
 ### Install steps
 
-1. Install Tampermonkey in your browser.
-2. Import the two `.user.js` files from the `scripts/` folder.
-3. Optionally import the `.json` config files if you want to preserve the original Tampermonkey metadata.
-4. Edit the placeholders and course list locally.
-5. Make sure both scripts are enabled in Tampermonkey.
+1. Install Tampermonkey in your browser (recommend using Chrome).
+2. Import the zip file.
+3. Edit the UTORid & password and course list locally.
+4. Make sure both scripts are enabled in Tampermonkey.
 
 ---
 
 ## Usage
 
-1. Open the UofT SSO / ACORN login page.
+1. Open the UofT ACORN login page.
 2. The login script auto-fills the credentials and submits the form.
 3. After redirecting to the course page, the auto-enroll script adds the `GOGOGO` button.
 4. Click `GOGOGO`.
-5. The browser opens one window per course and starts the enroll workflow.
+5. The browser opens one window per course and starts the enroll workflow automatically.
 
 
 ---
